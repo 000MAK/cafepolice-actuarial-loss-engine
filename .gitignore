@@ -4,3 +4,4 @@ outputs/artefacts.joblib
 __pycache__/
 .pytest_cache/
 ~$*
+hf_release/
