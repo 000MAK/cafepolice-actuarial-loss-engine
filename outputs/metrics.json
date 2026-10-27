@@ -1,0 +1,70 @@
+{
+  "cleaning": {
+    "policies": 678013,
+    "exposure_capped": 1224,
+    "claimnb_capped": 9,
+    "claims_without_amount": 9116,
+    "claims": 26406,
+    "total_exposure": 358360.1054629838,
+    "portfolio_frequency": 0.07368565752006556,
+    "total_claim_amount": 59909216.5
+  },
+  "train_policies": 542410,
+  "test_policies": 135603,
+  "frequency": {
+    "poisson_glm": {
+      "poisson_deviance": 0.4660008332356195,
+      "d2_vs_mean": 0.04084344966054543,
+      "gini": 0.2731255448177268,
+      "predicted_claims": 5250.590787448024,
+      "observed_claims": 5399.0
+    },
+    "poisson_gbm": {
+      "poisson_deviance": 0.45575215931709634,
+      "d2_vs_mean": 0.06193801005648003,
+      "gini": 0.3213395020837817,
+      "predicted_claims": 5246.884767981179,
+      "observed_claims": 5399.0
+    }
+  },
+  "severity": {
+    "threshold_u_p99": 16024.14549999969,
+    "claims_above_u": 199,
+    "p_exceed": 0.010028725495136824,
+    "gpd": {
+      "xi": 0.8695088697813151,
+      "sigma": 15739.268868352558,
+      "n": 199,
+      "mean_excess_model": 120615.62224172438
+    },
+    "empirical_mean_excess": 67847.01522864353,
+    "large_loss_load_per_claim": 1209.6209658873736,
+    "attritional_gamma_deviance_test": 1.0046519190956138,
+    "mean_claim_train": 2286.9097281858426,
+    "mean_attritional_pred_plus_load": 2789.01959236087,
+    "mean_claim_test_observed": 2198.2040822374515
+  },
+  "pure_premium": {
+    "freq_gbm_x_sev": {
+      "gini": 0.3307943662338291,
+      "predicted_total": 14634294.588624999,
+      "observed_total": 11868103.84,
+      "predicted_over_observed": 1.2330777338922407,
+      "tweedie_deviance_p1.9": 34.220711178180274
+    },
+    "freq_glm_x_sev": {
+      "gini": 0.2921957738962455,
+      "predicted_total": 14647427.552412506,
+      "observed_total": 11868103.84,
+      "predicted_over_observed": 1.2341843103061783,
+      "tweedie_deviance_p1.9": 34.393371513816795
+    },
+    "tweedie_glm": {
+      "gini": 0.27281821725713895,
+      "predicted_total": 11681519.707833808,
+      "observed_total": 11868103.84,
+      "predicted_over_observed": 0.9842785221058369,
+      "tweedie_deviance_p1.9": 34.47576610909723
+    }
+  }
+}

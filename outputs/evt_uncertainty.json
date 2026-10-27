@@ -1,0 +1,58 @@
+{
+  "threshold_sensitivity": [
+    {
+      "quantile": 0.95,
+      "u": 4673,
+      "n": 993,
+      "xi": 0.934,
+      "sigma": 3152,
+      "empirical_mean_excess": 18297
+    },
+    {
+      "quantile": 0.97,
+      "u": 6807,
+      "n": 596,
+      "xi": 0.958,
+      "sigma": 4894,
+      "empirical_mean_excess": 27779
+    },
+    {
+      "quantile": 0.98,
+      "u": 9318,
+      "n": 397,
+      "xi": 0.996,
+      "sigma": 6846,
+      "empirical_mean_excess": 38650
+    },
+    {
+      "quantile": 0.99,
+      "u": 16024,
+      "n": 199,
+      "xi": 0.87,
+      "sigma": 15739,
+      "empirical_mean_excess": 67847
+    },
+    {
+      "quantile": 0.995,
+      "u": 32260,
+      "n": 100,
+      "xi": 0.744,
+      "sigma": 31722,
+      "empirical_mean_excess": 113232
+    }
+  ],
+  "xi_ci95": [
+    0.592993365439612,
+    1.1147364315894006
+  ],
+  "share_xi_ge_1": 0.1975,
+  "gpd_load_median": 900.1538359036628,
+  "gpd_load_p05_p95": [
+    508.52014779043316,
+    4916.790338329252
+  ],
+  "empirical_load": 680.4190913924338,
+  "pp_ratio_gpd_load": 1.2330777338922407,
+  "pp_ratio_empirical_load": 0.9991177608495218,
+  "test_top10_share": 0.2083795072355889
+}
