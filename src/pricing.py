@@ -94,6 +94,13 @@ def fit_gpd(excess: np.ndarray) -> dict:
             "mean_excess_model": float(scale / (1 - shape)) if shape < 1 else float("inf")}
 
 
+def fit_lognormal(excess: np.ndarray) -> dict:
+    """Lognormal kuyruk benchmark'ı (alternatif kuyruk varsayımı, AIC ile)."""
+    s, loc, scale = stats.lognorm.fit(excess, floc=0)
+    ll = float(np.sum(stats.lognorm.logpdf(excess, s, loc=loc, scale=scale)))
+    return {"s": float(s), "scale": float(scale), "aic": float(2 * 2 - 2 * ll), "n": int(len(excess))}
+
+
 def run(data_home: Path, out_dir: Path) -> dict:
     df, cleaning = clean(load(data_home))
     train, test = train_test_split(df, test_size=0.2, random_state=SEED)
@@ -129,11 +136,16 @@ def run(data_home: Path, out_dir: Path) -> dict:
     gpd = fit_gpd(excess)
     p_exceed = float((sev_all > u).mean())
     large_load = p_exceed * gpd["mean_excess_model"]
+    ln = fit_lognormal(excess)
+    gpd_ll = float(np.sum(stats.genpareto.logpdf(excess, gpd["xi"], scale=gpd["sigma"])))
+    tail_benchmark = {"gpd_aic": round(2 * 2 - 2 * gpd_ll, 2), "lognormal_aic": round(ln["aic"], 2),
+                      "lognormal_s": round(ln["s"], 4), "winner": "GPD" if (2 * 2 - 2 * gpd_ll) < ln["aic"] else "Lognormal"}
     sev_model = make_pipeline(glm_features(), GammaRegressor(alpha=10.0, max_iter=1000))
     sev_model.fit(claims_tr, np.minimum(claims_tr["AvgClaim"], u), gammaregressor__sample_weight=claims_tr["ClaimNb"])
     att_te = sev_model.predict(claims_te)
     res["severity"] = {
         "threshold_u_p99": u, "claims_above_u": int((sev_all > u).sum()), "p_exceed": p_exceed, "gpd": gpd,
+        "tail_benchmark": tail_benchmark,
         "empirical_mean_excess": float(excess.mean()), "large_loss_load_per_claim": large_load,
         "attritional_gamma_deviance_test": float(mean_gamma_deviance(np.minimum(claims_te["AvgClaim"], u), att_te, sample_weight=claims_te["ClaimNb"])),
         "mean_claim_train": float(np.average(sev_all, weights=claims_tr["ClaimNb"])),

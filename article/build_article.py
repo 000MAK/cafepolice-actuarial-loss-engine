@@ -29,7 +29,7 @@ gpd = s["gpd"]
 
 TITLE = "Bir Yılın Faturasını On Hasar Yazar"
 SUBTITLE = "Açık veriyle bir trafik sigortası fiyatlama motoru: frekans, şiddet ve kuyruk riski"
-BYLINE = "Mehmet Ali Kaya · Veri Yönetimi Uzmanı, Yönetim Bilişim Sistemleri Doktora Adayı, İstatistik Yüksek Lisans"
+BYLINE = "Mehmet Ali Kaya · Veri Bilimci & Aktüeryal Modelleme Uzmanı, MSc İstatistik, PhD Adayı (Yönetim Bilişim Sistemleri)"
 SPOT = (f"{tr(c['policies'])} poliçelik açık bir trafik portföyünde hasar frekansını, hasar şiddetini ve büyük hasarları ayrı ayrı modelledim. "
         "Makine öğrenmesi riski daha iyi sıraladı; ama asıl ders, yılın faturasının birkaç büyük hasar tarafından yazılmasıydı.")
 

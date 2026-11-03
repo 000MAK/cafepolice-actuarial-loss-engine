@@ -37,6 +37,12 @@
       "n": 199,
       "mean_excess_model": 120615.62224172438
     },
+    "tail_benchmark": {
+      "gpd_aic": 4594.3,
+      "lognormal_aic": 4596.43,
+      "lognormal_s": 1.8286,
+      "winner": "GPD"
+    },
     "empirical_mean_excess": 67847.01522864353,
     "large_loss_load_per_claim": 1209.6209658873736,
     "attritional_gamma_deviance_test": 1.0046519190956138,
